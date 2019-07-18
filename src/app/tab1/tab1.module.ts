@@ -16,6 +16,7 @@ import { Tab1Page } from './tab1.page';
 })
 export class Tab1PageModule {
 
-search = true;  
+search = true;
+add = false;  
 
 }

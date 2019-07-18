@@ -4,7 +4,7 @@
     <br>
     <ion-title *ngIf ="!search; else elseBlock">
       Películas y series
-      <ion-button float-right fill="clear" class="b2">
+      <ion-button float-right fill="clear" class="b2" (click)="add=!add">
           <ion-icon size="small"  name="person"></ion-icon>
         </ion-button>
       <ion-button float-right fill="clear" class="b" (click)="search = !search">
@@ -30,7 +30,14 @@
 </ion-header>
 
 <ion-content>
-    <ion-card>
+
+    <ion-fab *ngIf="add" vertical="top" horizontal="end" slot="fixed" routerLink="/add">
+        <ion-fab-button>
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+
+    <ion-card routerLink="/review">
       <ion-img src=" https://staticuestudio.blob.core.windows.net/buhomag/2018/01/22155623/breaking-bad.jpg?auto=compress,format"></ion-img>
         <ion-card-header>
             <ion-card-subtitle>Serie</ion-card-subtitle>
