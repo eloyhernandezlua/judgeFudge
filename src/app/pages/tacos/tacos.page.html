@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+      <br>
+      <ion-title *ngIf ="!search; else elseBlock">
+        Tacos
+        <ion-button float-right fill="clear" class="b2" (click)="add=!add">
+            <ion-icon size="small"  name="person"></ion-icon>
+          </ion-button>
+        <ion-button float-right fill="clear" class="b" (click)="search = !search">
+          <ion-icon size="large"  name="search"></ion-icon>
+        </ion-button>
+      </ion-title>
+  
+    <ng-template #elseBlock>
+      <ion-row>
+        <ion-col size="2">
+        <ion-button float-left fill="clear" class="b" (click)="search = !search">
+            <ion-icon name="arrow-back"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col>
+      <ion-searchbar animated></ion-searchbar>
+    </ion-col>
+    </ion-row>
+    </ng-template>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-fab *ngIf="add" vertical="top" horizontal="end" slot="fixed">
+      <ion-fab-button>
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+  <ion-card  >
+    <ion-img src="http://michoacan.travel/assets/cache/aab085461de182608ee9f607f3f7d18f/restaurant-1050-j-campos-2_848x476_adaptiveResize.jpg"></ion-img>
+      <ion-card-header>
+          <ion-card-subtitle>Morelia</ion-card-subtitle>
+          <ion-card-title>J Campos
+              <ion-card-title float-right>4</ion-card-title>
+              <ion-icon name="star" float-right></ion-icon>
+          </ion-card-title>
+          
+        </ion-card-header>
+  </ion-card>
+</ion-content>
