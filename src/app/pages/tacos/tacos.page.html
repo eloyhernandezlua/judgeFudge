@@ -2,6 +2,7 @@
   <ion-toolbar>
       <br>
       <ion-title *ngIf ="!search; else elseBlock">
+          <ion-icon name="arrow-back" routerLink="/tabs/tab2"></ion-icon>
         Tacos
         <ion-button float-right fill="clear" class="b2" (click)="add=!add">
             <ion-icon size="small"  name="person"></ion-icon>
@@ -33,6 +34,9 @@
       <ion-fab-button>
         <ion-icon name="add"></ion-icon>
       </ion-fab-button>
+      <ion-fab-button color="danger">
+          <ion-icon name="log-out"></ion-icon>
+        </ion-fab-button>
     </ion-fab>
 
   <ion-card  >
@@ -41,7 +45,7 @@
           <ion-card-subtitle>Morelia</ion-card-subtitle>
           <ion-card-title>J Campos
               <ion-card-title float-right>4</ion-card-title>
-              <ion-icon name="star" float-right></ion-icon>
+              <ion-icon src="../assets/star.svg" float-right></ion-icon>
           </ion-card-title>
           
         </ion-card-header>

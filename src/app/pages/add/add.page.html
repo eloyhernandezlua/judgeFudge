@@ -1,25 +1,28 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Add</ion-title>
+    <ion-title>
+        <ion-icon name="arrow-back" routerLink="/tabs/tab1"></ion-icon>
+        Add</ion-title>
   </ion-toolbar>
 </ion-header>
 <br><br>
 <ion-content>
     <form>
-      <div>
-        <label style="margin-left: 10px">Puntuación</label>
-        <ion-item>
-            <ion-range min="0" max="5" step=".5" snaps="true" ticks="false" pin="true">
+      
+      <label style="margin-left: 17px" >Puntuación</label>
+      <ion-item>
+      <ion-range min="0" max="5" step=".5" snaps="true" ticks="false" pin="true">
               <ion-icon size="small" slot="start" name="star-outline"></ion-icon>
-              <ion-icon slot="end" name="star"></ion-icon>
+              <ion-icon slot="end" src="../assets/star.svg"></ion-icon>
             </ion-range>
+            
           </ion-item>
-      </div>
-      <br>
-      <div>
-        <label style="margin-left: 10px">Reseña</label>
+      
+          <br>
+          <label style="margin-left: 17px" >Reseña</label>
+            <ion-item>
         <ion-textarea placeholder="Escribe la reseña" style="margin-left: 10px"></ion-textarea>
-      </div>
+      </ion-item>
       <br>
       <ion-item>
           <ion-label>Fecha</ion-label>
@@ -37,7 +40,7 @@
          
     
     <div>
-      <ion-label style="margin-left: 10px">Imagen</ion-label>
+      <ion-label style="margin-left: 17px">Imagen</ion-label>
         
          <br>
          <br>
@@ -57,7 +60,7 @@
         <br>
       
       <ion-button expand="block">
-        Summit
+        Submit
       </ion-button>
         
     

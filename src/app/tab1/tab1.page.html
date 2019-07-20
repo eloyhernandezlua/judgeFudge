@@ -31,11 +31,15 @@
 
 <ion-content>
 
-    <ion-fab *ngIf="add" vertical="top" horizontal="end" slot="fixed" routerLink="/add">
+    <ion-fab *ngIf="add" vertical="top" horizontal="end" slot="fixed">
         <ion-fab-button>
-          <ion-icon name="add"></ion-icon>
+          <ion-icon name="add" routerLink="/add"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button color="danger">
+          <ion-icon name="log-out"></ion-icon>
         </ion-fab-button>
       </ion-fab>
+     
 
     <ion-card routerLink="/review">
       <ion-img src=" https://staticuestudio.blob.core.windows.net/buhomag/2018/01/22155623/breaking-bad.jpg?auto=compress,format"></ion-img>
@@ -43,7 +47,7 @@
             <ion-card-subtitle>Serie</ion-card-subtitle>
             <ion-card-title>Breaking Bad
                 <ion-card-title float-right>5</ion-card-title>
-                <ion-icon name="star" float-right></ion-icon>
+                <ion-icon src="../assets/star.svg" float-right></ion-icon>
             </ion-card-title>
             
           </ion-card-header>
@@ -54,7 +58,7 @@
               <ion-card-subtitle>Película</ion-card-subtitle>
               <ion-card-title>Shape of water
                   <ion-card-title float-right>5</ion-card-title>
-                  <ion-icon name="star" float-right></ion-icon>
+                  <ion-icon src="../assets/star.svg" float-right></ion-icon>
               </ion-card-title>
             </ion-card-header>
       </ion-card>
@@ -64,7 +68,7 @@
                 <ion-card-subtitle>Serie</ion-card-subtitle>
                 <ion-card-title>Bojack Horseman
                     <ion-card-title float-right>4</ion-card-title>
-                    <ion-icon name="star" float-right></ion-icon>
+                    <ion-icon src="../assets/star.svg" float-right></ion-icon>
                 </ion-card-title>
               </ion-card-header>
         </ion-card>
