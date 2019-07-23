@@ -1,10 +1,20 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-        <ion-icon name="arrow-back" routerLink="/tabs/tab1"></ion-icon>login</ion-title>
+        <ion-icon name="arrow-back" routerLink="/tabs/tab1"></ion-icon>Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-label >Correo</ion-label>
+    <ion-item>
+    <ion-input [(ngModel)]="correo"></ion-input>
+  </ion-item>
+  <ion-label>Contraseña</ion-label>
+    <ion-item>
+      <ion-input [(ngModel)]="pwd" type="password"></ion-input>
+    </ion-item>
+  
+    <ion-button expand="block" (click)="login(correo,pwd)">Login</ion-button>
 
 </ion-content>
