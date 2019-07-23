@@ -6,7 +6,8 @@ const routes: Routes = [
   { path: 'review', loadChildren: './pages/review/review.module#ReviewPageModule' },
   { path: 'edit', loadChildren: './pages/edit/edit.module#EditPageModule' },
   { path: 'add', loadChildren: './pages/add/add.module#AddPageModule' },
-  { path: 'tacos', loadChildren: './pages/tacos/tacos.module#TacosPageModule' }
+  { path: 'tacos', loadChildren: './pages/tacos/tacos.module#TacosPageModule' },
+  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' }
 ];
 @NgModule({
   imports: [

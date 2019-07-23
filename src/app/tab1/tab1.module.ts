@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab1Page } from './tab1.page';
+import { AngularFireAuth } from '@angular/fire/auth'
 
 @NgModule({
   imports: [
@@ -18,5 +19,14 @@ export class Tab1PageModule {
 
 search = true;
 add = false;  
+
+constructor(private afauth: AngularFireAuth){
+
+}
+/*
+login(usuario, contrasenia){
+  this.afauth.auth.signInWithEmailAndPassword(usuario,contrasenia);
+}
+*/
 
 }
