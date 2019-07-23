@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { resenia } from '../types/resenia'
+import { observable, Observable } from 'rxjs';
+import { DatabaseService } from '../services/database.service';
+
 
 @Component({
   selector: 'app-tab1',
@@ -9,12 +13,19 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class Tab1Page {
 
-  constructor(private router:Router, private afa: AngularFireAuth) {}
+  peliculasSeries: Observable<resenia[]>;
+
+  constructor(private router:Router, private afa: AngularFireAuth, private db: DatabaseService) {}
+
+  ngOnInit(){
+
+    this.peliculasSeries = this.db.getPS();
+
+  }
+  
 
   add;
-log(){
-
-
+  log(){
   this.afa.authState.subscribe(auth => {
     if (auth){
       this.add = !this.add
@@ -23,17 +34,12 @@ log(){
       this.router.navigateByUrl('/login');
 
     }
-  })
+    })
+   }
 
- 
-    
-  
-
-}
-
-logout(){
-  this.add = false;
-  this.afa.auth.signOut();
-  console.log("si se salió");
-}
-}
+    logout(){
+      this.add = false;
+      this.afa.auth.signOut();
+      console.log("si se salió");
+    }
+    }

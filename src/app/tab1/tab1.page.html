@@ -41,8 +41,8 @@
       </ion-fab>
      
 
-    <ion-card routerLink="/review">
-      <ion-img src=" https://staticuestudio.blob.core.windows.net/buhomag/2018/01/22155623/breaking-bad.jpg?auto=compress,format"></ion-img>
+    <ion-card routerLink="/review" *ngFor="let peliculasSerie of peliculasSeries | async">
+      <ion-img src=peliculaSerie.imagen></ion-img>
         <ion-card-header>
             <ion-card-subtitle>Serie</ion-card-subtitle>
             <ion-card-title>Breaking Bad

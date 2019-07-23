@@ -8,10 +8,14 @@
 <br><br>
 <ion-content>
     <form>
-      
+      <label style="margin-left: 17px">Nombre</label>
+      <ion-item>
+        <ion-input id="nombre" name="nombre" [(ngModel)]="newPS.nombre"></ion-input>
+      </ion-item>
+      <br>
       <label style="margin-left: 17px" >Puntuación</label>
       <ion-item>
-      <ion-range min="0" max="5" step=".5" snaps="true" ticks="false" pin="true">
+      <ion-range min="0" max="5" step=".5" snaps="true" ticks="false" pin="true" id="puntuacion" name="puntuacion" [(ngModel)]="newPS.puntuacion">
               <ion-icon size="small" slot="start" name="star-outline"></ion-icon>
               <ion-icon slot="end" src="../assets/star.svg"></ion-icon>
             </ion-range>
@@ -21,17 +25,17 @@
           <br>
           <label style="margin-left: 17px" >Reseña</label>
             <ion-item>
-        <ion-textarea placeholder="Escribe la reseña" style="margin-left: 10px"></ion-textarea>
+        <ion-textarea placeholder="Escribe la reseña" style="margin-left: 10px" id="resenia" name="resenia" [(ngModel)]="newPS.resenia"></ion-textarea>
       </ion-item>
       <br>
       <ion-item>
           <ion-label>Fecha</ion-label>
-          <ion-datetime displayFormat="MMM YYYY" placeholder="Select Date"></ion-datetime>
+          <ion-datetime displayFormat="MMM YYYY" placeholder="Select Date" id="fecha" name="fecha" [(ngModel)]="newPS.fecha"></ion-datetime>
         </ion-item>
     <br>
     <ion-item>
         <ion-label>Categoría</ion-label>
-        <ion-select value="Pelicula" okText="Okay" cancelText="Dismiss">
+        <ion-select value="Pelicula" okText="Okay" cancelText="Dismiss" id="categoria" name="categoria" [(ngModel)]="newPS.categoria">
           <ion-select-option value="Pelicula">Película</ion-select-option>
           <ion-select-option value="Serie">Serie</ion-select-option>
         </ion-select>
@@ -46,7 +50,7 @@
          <br>
           <ion-button style="width: 49%" float-left expand="block">Tomar foto</ion-button>
           <ion-button style="width: 49%" float-right expand="block" (click)= "imagen=!imagen">Url foto</ion-button>
-          <ion-input *ngIf="imagen" placeholder="URL imagen"></ion-input>
+          <ion-input *ngIf="imagen" placeholder="URL imagen" id="imagen" name="imagen" [(ngModel)]="newPS.imagen"></ion-input>
       
       
     </div>
@@ -59,7 +63,7 @@
         <br>
         <br>
       
-      <ion-button expand="block">
+      <ion-button expand="block" (click)="add()">
         Submit
       </ion-button>
         
