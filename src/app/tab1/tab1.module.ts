@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab1Page } from './tab1.page';
 import { AngularFireAuth } from '@angular/fire/auth'
+import { Tab1PageRoutingModule } from '../tab1/tab1.router.module'
 
 @NgModule({
   imports: [
