@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ReviewPageModule } from '../pages/review/review.module';
 import { ReviewPage } from '../pages/review/review.page';
-import { Tab1Page } from '../tab1/tab1.page'
+import { Tab1Page } from '../tab1/tab1.page';
 
 
 const routes: Routes = [
     {
-        path: 'tabs1',
+        path: '',
          component: Tab1Page,
           children: [
               {
@@ -21,7 +21,7 @@ const routes: Routes = [
 
         ]
     }
-]
+];
 @NgModule({
     imports: [
       RouterModule.forChild(routes)
@@ -29,4 +29,3 @@ const routes: Routes = [
     exports: [RouterModule]
   })
   export class Tab1PageRoutingModule {}
-  

@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { resenia } from '../types/resenia'
+import { resenia } from '../types/resenia';
 import { observable, Observable } from 'rxjs';
 import { DatabaseService } from '../services/database.service';
-import { Tab1PageRoutingModule } from '../tab1/tab1.router.module'
+import { Tab1PageRoutingModule } from '../tab1/tab1.router.module';
 
 
 @Component({
@@ -12,41 +12,46 @@ import { Tab1PageRoutingModule } from '../tab1/tab1.router.module'
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit {
+
+  constructor(
+      private router: Router,
+      private afa: AngularFireAuth,
+      private db: DatabaseService,
+  ) {}
 
   peliculasSeries: Observable<resenia[]>;
 
-  constructor(private router:Router, private afa: AngularFireAuth, private db: DatabaseService, private trm: Tab1PageRoutingModule) {}
-
   ID;
-  ngOnInit(){
+
+
+  add;
+  ngOnInit() {
 
     this.peliculasSeries = this.db.getPS();
 
   }
 
-  review(){
+  review() {
     this.ID = this.db.getPS();
     this.router.navigateByUrl(`/${this.ID}`);
   }
-  
 
-  add;
-  log(){
+  log() {
   this.afa.authState.subscribe(auth => {
-    if (auth){
-      this.add = !this.add
+    if (auth) {
+      this.add = !this.add;
 
-    }else{
+    } else {
       this.router.navigateByUrl('/login');
 
     }
-    })
+    });
    }
 
-    logout(){
+    logout() {
       this.add = false;
       this.afa.auth.signOut();
-      console.log("si se salió");
+      console.log('si se salió');
     }
-    }
+}
