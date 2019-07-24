@@ -32,4 +32,14 @@ export class DatabaseService {
           );
     }
 
+    getItem(id) {
+      return this.peliculasSeries.doc(id).snapshotChanges().pipe(
+        map(doc => {
+          const result = doc.payload.data() as resenia;
+          result.id = doc.payload.id;
+          return result;
+        })
+      );
+    }
+
 }
