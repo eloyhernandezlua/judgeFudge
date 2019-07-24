@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ReviewPageModule } from '../pages/review/review.module';
-import { ReviewPage } from '../pages/review/review.page';
 import { Tab1Page } from '../tab1/tab1.page';
+import { ReviewPage } from '../pages/review/review.page';
 
 
 const routes: Routes = [
@@ -20,6 +19,9 @@ const routes: Routes = [
               }
 
         ]
+    },
+    {
+         path: ':PSID', component: ReviewPage
     }
 ];
 @NgModule({
