@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
+import {ReviewPage} from "../pages/review/review.page";
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../tab1/tab1.module#Tab1PageModule'
+          },
+          {
+            path: ':idReview',
+            component: ReviewPage
           }
         ]
       },

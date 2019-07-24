@@ -14,9 +14,9 @@ const routes: Routes = [
                   path: 'review',
                   children: [
                       {
-                  path: '',
-                    loadChildren: '../review/review.module#ReviewPageModule'
-                      }]
+                          path: '',
+                          loadChildren: '../review/review.module#ReviewPageModule'
+                      }],
               }
 
         ]
