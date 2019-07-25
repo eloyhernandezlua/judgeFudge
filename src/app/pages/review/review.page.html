@@ -8,15 +8,15 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="PS | async as review">
   <ion-item >
 
-  <ion-img class="banner" [src]="PS.imagen"></ion-img>
+  <ion-img class="banner" [src]="review.imagen"></ion-img>
   <p>
-      {{ PS.resenia | async }}
+      {{ review | json}}
   </p>
   <ion-text>
-    <h1 class="reviewTitle">{{PS.nombre | json | async}}
+    <h1 class="reviewTitle">{{review.nombre}}
         <ion-icon float-right src="../assets/star.svg"></ion-icon>
         <ion-icon float-right src="../assets/star.svg"></ion-icon>
         <ion-icon float-right src="../assets/star.svg"></ion-icon>

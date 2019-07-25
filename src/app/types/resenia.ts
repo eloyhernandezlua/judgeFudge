@@ -7,4 +7,5 @@ export interface resenia {
     puntuacion: number;
     resenia: string;
     nombre: string;
+    id?: string;
 }
