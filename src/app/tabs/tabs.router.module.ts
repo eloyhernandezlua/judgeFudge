@@ -1,11 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
-<<<<<<< HEAD
 import { ReviewPage } from '../pages/review/review.page';
-=======
-import {ReviewPage} from "../pages/review/review.page";
->>>>>>> 39b39fa5903b85930b0eeb33980bd47eb36a16e9
 
 const routes: Routes = [
   {
