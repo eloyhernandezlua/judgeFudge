@@ -6,13 +6,14 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-add',
-  templateUrl: './add.page.html',
-  styleUrls: ['./add.page.scss'],
+  selector: 'app-add-cerveza',
+  templateUrl: './add-cerveza.page.html',
+  styleUrls: ['./add-cerveza.page.scss'],
 })
-export class AddPage implements OnInit {
+export class AddCervezaPage implements OnInit {
 
-newPS: resenia = {
+  
+newCerveza: resenia = {
   puntuacion: undefined,
   categoria: undefined,
   nombre: undefined,
@@ -31,8 +32,8 @@ newPS: resenia = {
   }
 
   add(){
-    console.log(this.newPS);
-    this.db.addPS(this.newPS);
+    console.log(this.newCerveza);
+    this.db.addCerveza(this.newCerveza);
     this.location.back();
     
   }

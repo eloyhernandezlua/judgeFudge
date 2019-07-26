@@ -3,32 +3,30 @@
     <ion-title>
         <ion-icon name="arrow-back" routerLink="/tabs/tab1"></ion-icon>
         Review
-        <ion-icon float-right  name="create" routerLink="/edit"></ion-icon>
+       <!-- <ion-icon float-right  name="create" (click)="log()"></ion-icon>-->
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content *ngIf="PS | async as review">
-  <ion-item >
+ 
 
   <ion-img class="banner" [src]="review.imagen"></ion-img>
-  <p>
-      {{ review | json}}
-  </p>
+
   <ion-text>
     <h1 class="reviewTitle">{{review.nombre}}
-        <ion-icon float-right src="../assets/star.svg"></ion-icon>
-        <ion-icon float-right src="../assets/star.svg"></ion-icon>
-        <ion-icon float-right src="../assets/star.svg"></ion-icon>
-        <ion-icon float-right src="../assets/star.svg"></ion-icon>
-        <ion-icon float-right src="../assets/star.svg"></ion-icon>
+        <ion-icon   *ngIf="review.puntuacion % 1 != 0" float-right src="../assets/star-social-favorite-middle-full.svg"></ion-icon>
+        <ion-icon *ngIf="review.puntuacion >= 1" float-right src="../assets/star.svg"></ion-icon>
+        <ion-icon  *ngIf="review.puntuacion >= 2" float-right src="../assets/star.svg"></ion-icon>
+        <ion-icon  *ngIf="review.puntuacion >= 3" float-right src="../assets/star.svg"></ion-icon>
+        <ion-icon   *ngIf="review.puntuacion >= 4" float-right src="../assets/star.svg"></ion-icon>
+        <ion-icon   *ngIf="review.puntuacion >= 5" float-right src="../assets/star.svg"></ion-icon>
     </h1>
-    <p class="fecha">Vista en Febrero 2018</p>
+    <p class="fecha">{{review.fecha | date}}</p>
     <p class="review">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla efficitur lacus neque. Proin tempus accumsan libero ac pulvinar. Praesent faucibus vehicula risus, ut ultrices lacus ullamcorper et. Mauris quis luctus magna, et suscipit nisl. Vivamus nec fermentum justo. Quisque vel mi purus. Suspendisse sed tortor mattis, ultrices est rhoncus, iaculis nibh. Quisque scelerisque id elit ac condimentum. Vestibulum pellentesque sollicitudin cursus. Donec non dui arcu. Quisque at nisi eget elit bibendum gravida et eget ex. Sed efficitur euismod ipsum, dignissim consectetur ex pretium id. Donec enim odio, commodo tempor bibendum vitae, dapibus quis nulla. Nam consequat orci et nisl blandit, a efficitur mi pharetra. Integer purus dui, scelerisque id euismod ut, hendrerit non ex.
-
+        {{review.resenia}}
         </p>
     
   </ion-text>
-</ion-item>
+
 </ion-content>

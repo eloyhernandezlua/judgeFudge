@@ -4,29 +4,28 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { resenia } from 'src/app/types/resenia';
 import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
-
 @Component({
-  selector: 'app-review',
-  templateUrl: './review.page.html',
-  styleUrls: ['./review.page.scss'],
+  selector: 'app-review-cerveza',
+  templateUrl: './review-cerveza.page.html',
+  styleUrls: ['./review-cerveza.page.scss'],
 })
-export class ReviewPage implements OnInit {
+export class ReviewCervezaPage implements OnInit {
 
-  PS: Observable<resenia>;
+  cerveza: Observable<resenia>;
   constructor(private db: DatabaseService,
      private router: Router,
       private route: ActivatedRoute,
       private afa: AngularFireAuth) { }
 
   // link = this.router.getCurrentNavigation()
-  idItem = this.route.snapshot.params.idReview;
+  idCerveza = this.route.snapshot.params['cervezaid'];
   
 
   ngOnInit() {
-    console.log(this.idItem);
-    this.PS = this.db.getItem(this.idItem);
-    console.log(this.PS);
-    this.db.getItem(this.idItem).subscribe( item => console.log(item));
+    console.log(this.idCerveza);
+    this.cerveza = this.db.getCerveza(this.idCerveza);
+    console.log(this.cerveza);
+    this.db.getCerveza(this.idCerveza).subscribe( item => console.log(item));
     
   }
 
@@ -42,5 +41,5 @@ export class ReviewPage implements OnInit {
       });
      }
 
-  
+
 }
