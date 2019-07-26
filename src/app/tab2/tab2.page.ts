@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
+import { comida } from '../types/comida';
+import { Observable } from 'rxjs';
+import { DatabaseService } from '../services/database.service';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +11,15 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  constructor(
+    private router: Router,
+    private db: DatabaseService,
+) {}
+    comidas: Observable<comida[]>
+
+    ngOnInit(){
+      this.comidas =this.db.getComida();
+
+    }
 
 }

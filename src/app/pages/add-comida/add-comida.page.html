@@ -1,0 +1,81 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+          <ion-icon name="arrow-back" routerLink="/tabs/tab2"></ion-icon>
+          Add</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <br><br>
+  <ion-content>
+      <form>
+        <label style="margin-left: 17px">Nombre</label>
+        <ion-item>
+          <ion-input id="nombre" name="nombre" [(ngModel)]="newComida.nombre"></ion-input>
+        </ion-item>
+        <br>
+        <label style="margin-left: 17px" >Puntuación</label>
+        <ion-item>
+        <ion-range min="0" max="5" step=".5" snaps="true" ticks="false" pin="true" id="puntuacion" name="puntuacion" [(ngModel)]="newComida.puntuacion">
+                <ion-icon size="small" slot="start" name="star-outline"></ion-icon>
+                <ion-icon slot="end" src="../assets/star.svg"></ion-icon>
+              </ion-range>
+              
+            </ion-item>
+        
+            <br>
+            <label style="margin-left: 17px" >Reseña</label>
+              <ion-item>
+          <ion-textarea placeholder="Escribe la reseña" style="margin-left: 10px" id="resenia" name="resenia" [(ngModel)]="newComida.resenia"></ion-textarea>
+        </ion-item>
+        <br>
+        <ion-item>
+            <ion-label>Fecha</ion-label>
+            <ion-datetime displayFormat="MMM YYYY" placeholder="Select Date" id="fecha" name="fecha" [(ngModel)]="newComida.fecha"></ion-datetime>
+          </ion-item>
+      <br>
+      <ion-item>
+          <ion-label>Categoría</ion-label>
+          <ion-select value="hamburguesas" okText="Okay" cancelText="Dismiss" id="categoria" name="categoria" [(ngModel)]="newComida.categoria">
+            <ion-select-option value="hamburguesas">Hamburguesas</ion-select-option>
+            <ion-select-option value="pizzas">Pizzas</ion-select-option>
+            <ion-select-option value="alitas">Alitas</ion-select-option>
+            <ion-select-option value="tacos">Tacos</ion-select-option>
+            <ion-select-option value="tortas">Tortas</ion-select-option>
+            <ion-select-option value="japonesa">Japonesa</ion-select-option>
+            <ion-select-option value="mexicana">Mexicana</ion-select-option>
+            <ion-select-option value="italiana">italiana</ion-select-option>
+            <ion-select-option value="cortes">Cortes</ion-select-option>
+            <ion-select-option value="postres">Postres</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <br>
+           
+      
+      <div>
+        <ion-label style="margin-left: 17px">Imagen</ion-label>
+          
+           <br>
+           <br>
+            <ion-button style="width: 49%" float-left expand="block">Tomar foto</ion-button>
+            <ion-button style="width: 49%" float-right expand="block" (click)= "imagen=!imagen">Url foto</ion-button>
+            <ion-input *ngIf="imagen" placeholder="URL imagen" id="imagen" name="imagen" [(ngModel)]="newComida.imagen"></ion-input>
+        
+        
+      </div>
+      <br>
+      <br>
+      
+  
+      
+      
+          <br>
+          <br>
+        
+        <ion-button expand="block" (click)="add()">
+          Submit
+        </ion-button>
+          
+      
+      </form>
+      </ion-content>
+  

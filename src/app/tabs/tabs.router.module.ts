@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 import { ReviewPage } from '../pages/review/review.page';
 import { ReviewCervezaPage } from '../pages/review-cerveza/review-cerveza.page';
+import { ReviewComidaPage } from '../pages/review-comida/review-comida.page';
+import { ReseniasComidaPage } from '../pages/resenias-comida/resenias-comida.page';
 
 const routes: Routes = [
   {
@@ -33,7 +35,16 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../tab2/tab2.module#Tab2PageModule'
-          }
+          },
+          {
+            path: ':nombre',
+            component: ReseniasComidaPage,
+            
+        },
+                  {
+                    path: ':nombre/:foodId',
+                    component: ReviewComidaPage
+                  }
         ]
       },
       {

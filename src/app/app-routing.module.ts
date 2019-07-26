@@ -10,7 +10,10 @@ const routes: Routes = [
   { path: 'tacos', loadChildren: './pages/tacos/tacos.module#TacosPageModule' },
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
   { path: 'add-cerveza', loadChildren: './pages/add-cerveza/add-cerveza.module#AddCervezaPageModule' },
-  { path: 'review-cerveza', loadChildren: './pages/review-cerveza/review-cerveza.module#ReviewCervezaPageModule' }
+  { path: 'review-cerveza', loadChildren: './pages/review-cerveza/review-cerveza.module#ReviewCervezaPageModule' },
+  { path: 'review-comida', loadChildren: './pages/review-comida/review-comida.module#ReviewComidaPageModule' },
+  { path: 'resenias-comida', loadChildren: './pages/resenias-comida/resenias-comida.module#ReseniasComidaPageModule' },
+  { path: 'add-comida', loadChildren: './pages/add-comida/add-comida.module#AddComidaPageModule' }
 ];
 @NgModule({
   imports: [

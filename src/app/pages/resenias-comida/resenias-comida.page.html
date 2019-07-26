@@ -1,0 +1,59 @@
+<ion-header>
+        <ion-toolbar>
+      
+          <br>
+          <ion-title *ngIf ="!search; else elseBlock">
+                <ion-icon name="arrow-back" routerLink="/tabs/tab2"></ion-icon>
+            {{foodId | uppercase }}
+            <ion-button float-right fill="clear" class="b2" (click)="log()">
+                <ion-icon size="small"  name="person"></ion-icon>
+              </ion-button>
+            <ion-button float-right fill="clear" class="b" (click)="search = !search">
+              <ion-icon size="large"  name="search"></ion-icon>
+            </ion-button>
+          </ion-title>
+      
+        <ng-template #elseBlock>
+          <ion-row>
+            <ion-col size="2">
+            <ion-button float-left fill="clear" class="b" (click)="search = !search">
+                <ion-icon name="arrow-back"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col>
+          <ion-searchbar animated></ion-searchbar>
+        </ion-col>
+        </ion-row>
+        </ng-template>
+        
+        </ion-toolbar>
+      
+      </ion-header>
+      
+      <ion-content>
+      
+          <ion-fab *ngIf="add" vertical="top" horizontal="end" slot="fixed" >
+              <ion-fab-button>
+                <ion-icon name="add" routerLink="/add-comida"></ion-icon>
+              </ion-fab-button>
+              <ion-fab-button color="danger">
+                <ion-icon name="log-out" (click)="logout()"></ion-icon>
+              </ion-fab-button>
+            </ion-fab>
+           
+      
+          <ion-card  *ngFor="let food of foods | async" [routerLink]="food.id">
+            
+            <ion-img [src]=food.imagen></ion-img>
+              <ion-card-header>
+                  <ion-card-subtitle>{{food.categoria}}</ion-card-subtitle>
+                  <ion-card-title>{{food.nombre}}
+                      <ion-card-title float-right>{{food.puntuacion}}</ion-card-title>
+                      <ion-icon src="../assets/star.svg" float-right></ion-icon>
+                  </ion-card-title>
+                  
+                </ion-card-header>
+          </ion-card>
+          
+      </ion-content>
+      

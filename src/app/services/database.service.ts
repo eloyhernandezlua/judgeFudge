@@ -15,9 +15,11 @@ export class DatabaseService {
     private router: Router
   ) { }
 
+
   peliculasSeries = this.afs.collection('peliculasSeries');
   comida = this.afs.collection('comida');
   cerveza = this.afs.collection('cerveza');
+  
 
     addPS(resenia: resenia){
         return this.peliculasSeries.add(resenia);
@@ -26,6 +28,9 @@ export class DatabaseService {
 
     addCerveza(resenia: resenia){
       return this.cerveza.add(resenia);
+    }
+    addComida(resenia: resenia){
+      return this.afs.collection(`comida/${resenia.categoria}/resenias`).add(resenia);
     }
 
     getPS(){
@@ -48,6 +53,38 @@ export class DatabaseService {
       );
     }
 
+    getFood(nombre){
+      return this.afs.collection(`comida/${nombre}/resenias`).snapshotChanges().pipe(
+        map(change => change.map(doc => {
+          const result = doc.payload.doc.data() as any;
+          result.id = doc.payload.doc.id;
+          return result;
+        }))
+      );
+    }
+
+    getReview(nombre,id){
+      return this.afs.collection(`comida/${nombre}/resenias`).doc(id).snapshotChanges().pipe(
+        map(doc => {
+          const result = doc.payload.data() as resenia;
+          result.id = doc.payload.id;
+          return result;
+        })
+      );
+    }
+
+    getComida(){
+      return this.comida.snapshotChanges().pipe(
+        map(change => change.map(doc => {
+          const result = doc.payload.doc.data() as any;
+          result.id = doc.payload.doc.id;
+          return result;
+        }))
+      );
+
+    }
+
+    
     getItem(id) {
       return this.peliculasSeries.doc(id).snapshotChanges().pipe(
         map(doc => {
@@ -67,5 +104,12 @@ export class DatabaseService {
         })
       );
     }
+
+
+    getCurrentUrl() {
+
+      return this.router.url.split('/');
+    
+      }
 
 }

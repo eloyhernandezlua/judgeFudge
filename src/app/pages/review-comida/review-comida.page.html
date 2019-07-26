@@ -1,0 +1,35 @@
+
+<ion-header>
+        <ion-toolbar>
+          <ion-title>
+              <ion-icon name="arrow-back" routerLink="/tabs/tab2"></ion-icon>
+              Review
+             
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+      
+      <ion-content *ngIf="comida | async as review">
+       
+      
+        <ion-img class="banner" [src]="review.imagen"></ion-img>
+      
+        <ion-text>
+          <h1 class="reviewTitle">{{review.nombre}}
+              <ion-icon   *ngIf="review.puntuacion % 1 != 0" float-right src="../assets/star-social-favorite-middle-full.svg"></ion-icon>
+              <ion-icon *ngIf="review.puntuacion >= 1" float-right src="../assets/star.svg"></ion-icon>
+              <ion-icon  *ngIf="review.puntuacion >= 2" float-right src="../assets/star.svg"></ion-icon>
+              <ion-icon  *ngIf="review.puntuacion >= 3" float-right src="../assets/star.svg"></ion-icon>
+              <ion-icon   *ngIf="review.puntuacion >= 4" float-right src="../assets/star.svg"></ion-icon>
+              <ion-icon   *ngIf="review.puntuacion >= 5" float-right src="../assets/star.svg"></ion-icon>
+          </h1>
+          <p class="fecha">{{review.fecha | date}}</p>
+          <p class="review">
+              {{review.resenia}}
+              </p>
+          
+        </ion-text>
+      
+      </ion-content>
+      
+      
