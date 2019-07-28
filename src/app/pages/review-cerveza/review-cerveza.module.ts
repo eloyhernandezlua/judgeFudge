@@ -5,13 +5,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ReviewCervezaPage } from './review-cerveza.page';
+
 
 const routes: Routes = [
-  {
-    path: '',
-    component: ReviewCervezaPage
-  }
+  
 ];
 
 @NgModule({
@@ -21,6 +18,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ReviewCervezaPage]
+  declarations: []
 })
 export class ReviewCervezaPageModule {}

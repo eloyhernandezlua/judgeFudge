@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { resenia } from 'src/app/types/resenia';
 import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-review-comida',
@@ -15,7 +16,8 @@ export class ReviewComidaPage implements OnInit {
   constructor(private db: DatabaseService,
      private router: Router,
       private route: ActivatedRoute,
-      private afa: AngularFireAuth) { }
+      private afa: AngularFireAuth,
+      private location: Location) { }
 
   // link = this.router.getCurrentNavigation()
   //id = this.route.snapshot.params.idReview;
@@ -28,6 +30,11 @@ export class ReviewComidaPage implements OnInit {
     console.log(this.comida);
     //this.db.getReview(this.id).subscribe( item => console.log(item));
     
+  }
+
+  back(){
+    this.location.back();
+
   }
 
   log() {

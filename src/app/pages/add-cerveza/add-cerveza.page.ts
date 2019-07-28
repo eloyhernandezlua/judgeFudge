@@ -25,7 +25,7 @@ newCerveza: resenia = {
 
 
   imagen=false;
-  constructor(private db: DatabaseService, private location: Location) { }
+  constructor(private db: DatabaseService, private location: Location, private router: Router) { }
 
   ngOnInit() {
   
@@ -34,7 +34,7 @@ newCerveza: resenia = {
   add(){
     console.log(this.newCerveza);
     this.db.addCerveza(this.newCerveza);
-    this.location.back();
+    this.router.navigateByUrl('/tabs/tab3');
     
   }
 
