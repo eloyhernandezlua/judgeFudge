@@ -4,10 +4,10 @@
       <br>
       <ion-title *ngIf ="!search; else elseBlock">
         Cerveza
-        <ion-button float-right fill="clear" class="b2" (click)="log()">
+        <ion-button mode ="md" float-right fill="clear" class="b2" (click)="log()">
             <ion-icon size="small"  name="person"></ion-icon>
           </ion-button>
-        <ion-button float-right fill="clear" class="b" (click)="search = !search" >
+        <ion-button mode ="md" float-right fill="clear" class="b" (click)="search = !search" >
           <ion-icon size="large"  name="search"></ion-icon>
         </ion-button>
       </ion-title>
@@ -20,7 +20,7 @@
           </ion-button>
         </ion-col>
         <ion-col>
-      <ion-searchbar animated></ion-searchbar>
+      <ion-searchbar animated (ionChange)= "busqueda($event)"></ion-searchbar>
     </ion-col>
     </ion-row>
     </ng-template>
@@ -41,7 +41,7 @@
         </ion-fab>
        
   
-      <ion-card  *ngFor="let cerveza of cervezas | async" [routerLink]="cerveza.id">
+      <ion-card  *ngFor="let cerveza of filtro" [routerLink]="cerveza.id">
         <ion-img [src]=cerveza.imagen></ion-img>
           <ion-card-header>
               <ion-card-subtitle>{{cerveza.categoria}}</ion-card-subtitle>

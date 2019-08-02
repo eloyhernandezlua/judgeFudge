@@ -21,7 +21,7 @@
               </ion-button>
             </ion-col>
             <ion-col>
-          <ion-searchbar animated></ion-searchbar>
+          <ion-searchbar animated (ionChange)= "busqueda($event)"></ion-searchbar>
         </ion-col>
         </ion-row>
         </ng-template>
@@ -42,7 +42,7 @@
             </ion-fab>
            
       
-          <ion-card  *ngFor="let food of foods | async" [routerLink]="food.id">
+          <ion-card  *ngFor="let food of filtro" [routerLink]="food.id">
             
             <ion-img [src]=food.imagen></ion-img>
               <ion-card-header>

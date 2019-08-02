@@ -18,15 +18,19 @@ export class Tab3Page {
     private db: DatabaseService,
 ) {}
 
-cervezas: Observable<resenia[]>;
+cervezas: resenia[];
 search= false;
+filtro: resenia[];
 ID;
 
 
 add;
 ngOnInit() {
 
-  this.cervezas = this.db.getCervezas();
+   this.db.getCervezas().subscribe(c => {
+     this.cervezas = c;
+     this.filtro = c;
+   })
 
 }
 
@@ -43,6 +47,13 @@ this.afa.authState.subscribe(auth => {
   }
   });
  }
+ busqueda(event){
+  if(event.target.value){
+    this.filtro = this.cervezas.filter(c => c.nombre.toLowerCase().includes(event.target.value));
+  } else {
+    this.filtro = this.cervezas;
+  }
+}
 
   logout() {
     this.add = false;

@@ -9,7 +9,7 @@
 <ion-content >
   <ion-row align-items-baseline>
     <ion-col *ngFor="let comida of comidas | async" size="6">
-    <ion-card  [routerLink]="comida.nombre">
+    <ion-card mode="md" [routerLink]="comida.nombre">
       <ion-img style="height: 90px; object-fit: cover" [src]="comida.imagen"></ion-img>
         <ion-card-header>
             <ion-card-title>{{comida.nombre}}</ion-card-title>

@@ -22,7 +22,8 @@ export class ReseniasComidaPage implements OnInit {
     private route: ActivatedRoute
 ) {}
 
-foods: Observable<resenia[]>;
+foods: resenia[];
+filtro: resenia[];
 
 ID;
 search = false;
@@ -32,8 +33,18 @@ add;
 foodId = this.route.snapshot.params['nombre'];
 ngOnInit() {
 
-  this.foods = this.db.getFood(this.foodId);
+ this.db.getFood(this.foodId).subscribe(f =>{
+   this.foods = f;
+   this.filtro = f;
+ })
 
+}
+busqueda(event){
+  if(event.target.value){
+    this.filtro = this.foods.filter(f => f.nombre.toLowerCase().includes(event.target.value));
+  } else {
+    this.filtro = this.foods;
+  }
 }
 
 
