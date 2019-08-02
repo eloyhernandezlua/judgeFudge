@@ -1,6 +1,7 @@
 {
   "hosting": {
-    "public": "dist",
+    "public": "www",
+    "site": "judgefudge",
     "ignore": [
       "firebase.json",
       "**/.*",

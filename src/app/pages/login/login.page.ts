@@ -9,6 +9,10 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class LoginPage implements OnInit {
 
+  pwd;
+  correo;
+  
+
   constructor(private router: Router, private afa:AngularFireAuth) { }
 
   ngOnInit() {

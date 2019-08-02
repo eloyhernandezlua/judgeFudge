@@ -20,16 +20,28 @@ export class Tab1Page implements OnInit {
       private db: DatabaseService,
   ) {}
 
-  peliculasSeries: Observable<resenia[]>;
+  peliculasSeries: resenia[];
+  filtro: resenia[];
 
   ID;
-
+    search = false;
 
   add;
   ngOnInit() {
 
-    this.peliculasSeries = this.db.getPS();
+    this.db.getPS().subscribe(p => {
+      this.peliculasSeries = p;
+      this.filtro = p;
+    })
 
+  }
+
+  busqueda(event){
+    if(event.target.value){
+      this.filtro = this.peliculasSeries.filter(p => p.nombre.toLowerCase().includes(event.target.value));
+    } else {
+      this.filtro = this.peliculasSeries;
+    }
   }
 
 

@@ -25,7 +25,7 @@ export class ReseniasComidaPage implements OnInit {
 foods: Observable<resenia[]>;
 
 ID;
-
+search = false;
 
 add;
 

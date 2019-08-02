@@ -19,7 +19,7 @@ export class Tab3Page {
 ) {}
 
 cervezas: Observable<resenia[]>;
-
+search= false;
 ID;
 
 
